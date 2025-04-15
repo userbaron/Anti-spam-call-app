@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="vertical"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="#F4EFEF">
+
+<!-- Заголовок приложения -->
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Приложение для защиты от спам-звонков"
+    android:textSize="24sp"
+    android:textStyle="bold"
+    android:textColor="#000000"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="16dp"/>
+
+<!-- Изображение-кнопка включения/выключения приложения -->
+<ImageView
+    android:id="@+id/app_image"
+    android:layout_width="400dp"
+    android:layout_height="700dp"
+    android:src="@drawable/app_off"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="-60dp"/>
+
+<!-- Текст состояния статуса работы приложения -->
+<TextView
+    android:id="@+id/app_description"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/description_off"
+    android:textSize="18sp"
+    android:textColor="#000000"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="-150dp"/>
+
+</LinearLayout>
