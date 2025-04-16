@@ -20,3 +20,7 @@ cd Anti-spam-call-app
 2. Выберете "Clone Repository"
 3. В графе "URL" вставьте "https://github.com/userbaron/Anti-spam-call-app"
 4. Нажмите "Clone"
+
+## Скриншоты
+![Приложение работает](Screen-on.jpg)
+![Приложение не работает](Screen-off.jpg)
