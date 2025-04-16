@@ -22,5 +22,5 @@ cd Anti-spam-call-app
 4. Нажмите "Clone"
 
 ## Скриншоты
-![Приложение работает](Screen-on.jpg)
-![Приложение не работает](Screen-off.jpg)
+![Приложение работает](Screen - on.jpg)
+![Приложение не работает](Screen - off.jpg)
