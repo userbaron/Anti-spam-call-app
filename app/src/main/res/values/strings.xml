@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">sobadguys</string>
-    <string name="description_off">on</string>
+    <string name="app_name">Call app</string>
+    <string name="description_off">Приложение не работает</string>
 </resources>

@@ -22,7 +22,7 @@ import org.json.JSONException;
 public class HttpParse {
 
     private static final String API_URL = "https://api.callfilter.app/apis/";
-    private static final String API_KEY = "API key сайта";
+    private static final String API_KEY = "OlsiNTA0MjA4Mjk4MSJdiEFWIO69QP";
     private static final String MODE = "1";
 
     public String getDataFromJsonString(String jsonString) throws JSONException, IOException {
@@ -30,54 +30,20 @@ public class HttpParse {
 
         try (JsonReader reader = Json.createReader(new StringReader(jsonString))) {
             JsonObject jsonObject = reader.readObject();
-
             for (String key : jsonObject.keySet()) {
                 JsonValue value = jsonObject.get(key);
                 if (value instanceof JsonNumber) {
                     map.put(key, value.toString());
-                } else if (value instanceof JsonString) {
+                }
+                else if (value instanceof JsonString) {
                     map.put(key, ((JsonString)value).getString());
-                } else {
+                }
+                else {
                     throw new IllegalArgumentException("Неверный тип Json значения: " + value.getClass().getName());
                 }
             }
         }
-
-        String category = "";
-        switch (Objects.requireNonNull(map.getOrDefault("cat", ""))) {
-            case "1":
-                category = "Мошенники";
-                break;
-            case "2":
-                category = "Реклама";
-                break;
-            case "3":
-                category = "Финансовые услуги";
-                break;
-            case "4":
-                category = "Опросы";
-                break;
-            case "5":
-                category = "Коллекторы долгов";
-                break;
-            case "6":
-                category = "Компания";
-                break;
-            case "7":
-                category = "Магазин";
-                break;
-            case "8":
-                category = "Данных об абоненте нет";
-                break;
-            default:
-                category = "Неизвестный абонент (не мошенник)";
-                break;
-        }
-
-        String formattedString = "Номер телефона: " + map.getOrDefault("phone", "") + "\n" +
-                "Кто звонит: " + category;
-
-        return formattedString;
+        return Objects.requireNonNull(map.getOrDefault("cat", ""));
     }
 
     public String executeGetRequest(String phoneNumber) throws IOException {
@@ -89,19 +55,22 @@ public class HttpParse {
                 try (InputStream in = new BufferedInputStream(urlConnection.getInputStream())) {
                     String result = readStream(in);
                     return getDataFromJsonString(result);
-                } catch (JSONException e) {
+                }
+                catch (JSONException e) {
                     return "Json не распарсиля";
                 }
-            } else {
+            }
+            else {
                 return "Ошибка: HTTP error code: " + responseCode;
             }
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             return "Ошибка: " + e.getMessage();
-        } finally {
+        }
+        finally {
             urlConnection.disconnect();
         }
     }
-
     private String readStream(InputStream in) throws IOException {
         StringBuilder sb = new StringBuilder();
         BufferedReader reader = new BufferedReader(new InputStreamReader(in));
