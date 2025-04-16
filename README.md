@@ -17,6 +17,6 @@ cd Anti-spam-call-app
 ```
 ### Для Windows в Android Studio
 1. Откройте стартовое окно
-2. Выберете Clone Repository
-3. В графе URL вставьте https://github.com/userbaron/Anti-spam-call-app
-4. Нажмите Clone и выберете доверять данному проекту
+2. Выберете "Clone Repository"
+3. В графе "URL" вставьте "https://github.com/userbaron/Anti-spam-call-app"
+4. Нажмите "Clone"
