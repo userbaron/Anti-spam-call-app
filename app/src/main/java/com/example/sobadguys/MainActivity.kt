@@ -13,6 +13,7 @@ import android.app.role.RoleManager.ROLE_CALL_SCREENING
 import android.content.ComponentName
 import android.content.Intent
 import android.content.ServiceConnection
+import android.net.Uri
 import android.os.Build
 import android.os.IBinder
 import android.widget.ImageView
@@ -37,6 +38,12 @@ class MainActivity : ComponentActivity() {
         CallScreening.STOP_WORKING = true;
         val appImage = findViewById<ImageView>(R.id.app_image)
         val appStatusText = findViewById<TextView>(R.id.app_description)
+        val websiteLink = findViewById<TextView>(R.id.website_link)
+        websiteLink.setOnClickListener {
+            val webpage = Uri.parse("https://github.com/userbaron/Anti-spam-call-app/blob/master/README.md")
+            val intent = Intent(Intent.ACTION_VIEW, webpage)
+            startActivity(intent)
+        }
 
         appImage.setOnClickListener {
             isAppEnabled = !isAppEnabled
